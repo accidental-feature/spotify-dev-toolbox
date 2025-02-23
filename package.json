@@ -8,7 +8,9 @@
   "scripts": {
     "build": "rm -rf dist && tsup src/index.ts --dts --format esm",
     "test": "npm run build && ava",
-    "release": "npm run test && np --no-tests"
+    "release:npm": "np --no-tests",
+    "release:github": "sed -i.bak 's/\"name\": \"spotify-dev-toolbox\"/\"name\": \"@accidental-feature\\/spotify-dev-toolbox\"/' package.json && npm publish --registry https://npm.pkg.github.com && mv package.json.bak package.json",
+    "release": "npm run release:npm && npm run release:github"
   },
   "dependencies": {
     "node-fetch": "^3.3.2"
