@@ -1,0 +1,55 @@
+{
+  "name": "spotify-dev-toolbox",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "description": "A TypeScript/Javascript library to make interacting with the Spotify API easier.",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "rm -rf dist && tsup src/index.ts --dts --format esm",
+    "test": "npm run build && ava",
+    "release": "npm run test && np --no-tests"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.5",
+    "@types/sinon": "^17.0.4",
+    "ava": "^6.2.0",
+    "dotenv": "^16.4.7",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.5.2",
+    "sinon": "^19.0.2",
+    "spotify-types": "^1.0.7",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.3.6",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3"
+  },
+  "lint-staged": {
+    "*.{js,ts,md}": "prettier --write"
+  },
+  "files": [
+    "dist"
+  ],
+  "np": {
+    "contents": "dist"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/accidental-feature/spotify-dev-toolbox.git"
+  },
+  "bugs": "https://github.com/accidental-feature/spotify-dev-toolbox/issues",
+  "author": {
+    "name": "Kijana Richmond",
+    "url": "https://kijana.dev/"
+  },
+  "keywords": [
+    "spotify",
+    "api",
+    "typescript",
+    "music"
+  ]
+}
